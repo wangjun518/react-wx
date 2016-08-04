@@ -1,0 +1,256 @@
+:global{
+
+  /** 整个布局 */
+  .chat-container{
+    overflow: hidden;
+    min-width: 400px;
+    height: 100%;
+    background: rgb(240,240,240);
+  }
+  .chat-container .chat-friends{
+    float: left;
+    width: 220px;
+  }
+  .chat-container .chat-message{
+    margin: 0 180px 0 220px;
+    border: 1px solid #ddd;
+    border-top: 0;
+    border-bottom: 0;
+    min-height: 100%;
+    background: #FFF;
+    position: relative;
+  }
+  .chat-container .chat-right{
+    float: right;
+    width: 180px;
+  }
+
+  /** 发送消息的表单 */
+  .send-msg-form{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 160px;
+    .toolbar{
+      border: 1px solid #e0e0e0;
+      border-left: 0;
+      border-right: 0;
+      padding: 5px 0;
+      .ant-btn{
+        margin-left: 8px;
+      }
+      .tips{
+        color: #888;
+        font-size: 12px;
+        float: right;
+        line-height: 30px;
+      }
+    }
+
+    .input-conatiner{
+      padding: 8px;
+      .editArea{
+        height: 6em;
+        overflow-y: auto;
+        overflow-x: hidden;
+        outline: 0;
+        border: 0;
+        font-size: 15px;
+        margin: 0;
+        white-space: pre-wrap;
+        word-break: initial;
+        img{
+          vertical-align: text-bottom;
+        }
+      }
+    }
+  }
+
+
+  /** 聊天内容展示 */
+  .message-head{
+    border-bottom: 1px solid #ddd;
+    padding: 5px 8px;
+    cursor: pointer;
+    background: #fff;
+    box-shadow: 0 1px 1px rgba(0,0,0,.1);
+    img{
+      float: left;
+      width: 50px;
+      height: 50px;
+      border-radius: 4px;
+    }
+    h1{
+      display: inline-block;
+      font-size: 16px;
+      color: #000;
+      margin-left: 10px;
+      line-height: 50px;
+    }
+  }
+  .message-body{
+    overflow-y: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 61px;
+    bottom: 160px;
+    padding-bottom: 30px;
+    background: rgb(240,240,240);
+    .message-item{
+      padding: 8px 8px 0 8px;
+      position: relative;
+      .photo{
+        float: left;
+        img{
+          width: 36px;
+          height: 36px;
+        }
+      }
+      .message{
+        display: block;
+        z-index: 1;
+        margin-left: 51px;
+        margin-right: 51px;
+        p{
+          display: inline-block;
+          background: #FFF;
+          padding: 8px 6px;
+          border-radius: 4px;
+          border: 1px solid #e0e0e0;
+          color: #000;
+          font-size: 14px;
+          word-break: break-all;
+          img{
+            vertical-align: text-bottom;
+          }
+        }
+      }
+      .caret-left{
+        position: absolute;
+        left: 52px;
+        top: 19px;
+        z-index: 2;
+        content: ' ';
+        width: 0;
+        height: 0;
+        border-top: 7px solid transparent;
+        border-right: 8px solid #e0e0e0;
+        border-bottom: 7px solid transparent;
+      }
+      .caret-left:after{
+        position: absolute;
+        left: 1px;
+        top: -6px;
+        z-index: 1;
+        content: ' ';
+        width: 0;
+        height: 0;
+        border-top: 6px solid transparent;
+        border-right: 7px solid #FFF;
+        border-bottom: 6px solid transparent;
+      }
+    }
+
+    .message-item.right{
+      .photo{
+        float: right;
+      }
+      .caret-left{
+        border-right: none;
+        left: auto;
+        right: 52px;
+        border-left: 8px solid rgb(62, 184, 136);
+      }
+      .caret-left:after{
+        right: 1px;
+        left: auto;
+        border-right: none;
+        border-left: 8px  solid rgb(100, 218, 159);
+      }
+      .message{
+        overflow: hidden;
+        p{
+          float: right;
+          background: rgb(100, 218, 159);
+          border: 1px solid rgb(62, 184, 136);
+        }
+      }
+    }
+  }
+
+  /* 好友列表 */
+  .friend-item{
+    border-bottom: 1px solid #DDD;
+    background: #FFF;
+  }
+  .friend-item > a {
+    overflow: hidden;
+    display: block;
+    padding: 5px 0;
+  }
+  .friend-item > a:hover{
+    background: #e0e0e0;
+  }
+  .friend-item > a:active{
+    background: #d0d0d0;
+  }
+
+  .friend-item .friend-item-left{
+    float: left;
+    padding: 0 5px;
+    position: relative;
+  }
+
+  .friend-item .friend-item-left .friend-msgcount{
+    position: absolute;
+    right: -3px;
+    top: -3px;
+    font-size: 12px;
+    background-color: rgb(255, 85, 0);
+    min-width: 16px;
+    text-align: center;
+    height: 16px;
+    line-height: 16px;
+    border-radius: 8px;
+    color: #FFF;
+    box-shadow: rgb(255, 255, 255) 0px 0px 0px 1px;
+  }
+
+  .friend-item .friend-photo{
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+  }
+  .friend-item .friend-item-right{
+    margin-left: 65px;
+    padding-right: 5px;
+  }
+
+  .friend-item .friend-item-right .friend-item-title{
+    display: table;
+    width: 100%;
+    line-height: 23px;
+  }
+
+  .friend-item .friend-item-right .friend-item-title>h3{
+    display: table-cell;
+    color: #222;
+  }
+  .friend-item .friend-item-right .friend-item-title>i{
+    display: table-cell;
+    text-align: right;
+    font-style: normal;
+    color: #999;
+  }
+
+  .friend-item .friend-item-right .friend-item-message{
+    line-height: 25px;
+    color: #999;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
